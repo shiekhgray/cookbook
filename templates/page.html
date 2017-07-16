@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<title>Cookbook</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="top">
+<h1>Cookbook</h1>
+</div>
+<div class="links">
+<h2>links</h2>
+<a href='{{url_for('home')}}'>home</a><br/>
+</div>
+<div class="main">
+{% block body %}{% endblock %}
+</div>
+</body>
+</html>
+

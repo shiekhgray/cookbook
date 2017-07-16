@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+    width: 1000px;
+}
+
+.top {
+    width:1000px;
+}
+
+.links {
+    width:300px;
+    float:left;
+}
+.main {
+    width:700px;
+    float:right;
+}
+
