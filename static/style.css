@@ -1,6 +1,9 @@
 body {
     font-family: sans-serif;
     width: 1000px;
+	border-style: solid;
+	border-width: 10px;
+	border-color: rgb(255,170,73)
 }
 
 .top {
@@ -14,5 +17,6 @@ body {
 .main {
     width:700px;
     float:right;
+	
 }
 
