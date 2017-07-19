@@ -70,11 +70,20 @@ def new_recipe():
 def view_recipe():
     connection = get_db()
     with connection.cursor() as cursor:
-        cursor.execute('select * from recipes;')
-        recipe = cursor.fetchall()
-        
-    return render_template('view_recipe.html', content=recipe)
+        cursor.execute('select * from recipes where id="1";')
+        recipe = cursor.fetchone()
 
+    return render_template('view_recipe.html', 
+        name=recipe["name"],
+        instructions=recipe["instructions"],
+        prep_time=recipe["prep_time"],
+        cook_time=recipe["cook_time"],
+        num_servings=recipe["num_servings"],
+        rating=recipe["rating"],
+        times_made=recipe["times_made"],
+        pic_ref=recipe["pic_ref"])
+        
+        
 
 if __name__ == "__main__":
-    cookbook.run(host='0.0.0.0')
+    cookbook.run(host='0.0.0.0', port=4999)
