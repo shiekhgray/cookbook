@@ -7,20 +7,23 @@ body {
 	border-width: 10px;
 	border-color: rgb(255,170,73);
 	border-radius: 20px;
-	
+	background-color: green;
 }
 
 .top {
     width:1000px;
+	background-color: yellow;
 }
 
 .links {
     width:300px;
     float:left;
+	background-color: blue;
 }
 .main {
     width:700px;
     float:right;
+	background-color: purple;
 	
 }
 
