@@ -1,13 +1,16 @@
 body {
     font-family: sans-serif;
     width: 1000px;
+	background-color: green;
+}
+
+.all {
 	margin: 20px;
 	padding: 20px;
 	border-style: solid;
 	border-width: 10px;
 	border-color: rgb(255,170,73);
 	border-radius: 20px;
-	background-color: green;
 }
 
 .top {
