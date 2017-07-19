@@ -11,11 +11,12 @@
 import os
 import sqlite3 
 import datetime
+import pymysql 
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-from flask.ext.mysql import MySQL
+#from flask.ext.mysql import MySQL
 
-mysql = MySQL()
+#mysql = MySQL()
  
 
 #######
@@ -28,12 +29,23 @@ cookbook.config.update(dict(
 ))
 
 # MySQL config
-cookbook.config['MYSQL_DATABASE_USER'] = 'recipes'
-cookbook.config['MYSQL_DATABASE_PASSWORD'] = 'WbGM6OMZ6QgVYrCM'
-cookbook.config['MYSQL_DATABASE_DB'] = 'Cookbook'
-cookbook.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(cookbook)
+def get_db():
+    if not hasattr(g, 'mysql_db'):
+        g.mysql_db = pymysql.connect(
+            host='localhost',
+            user='recipes',
+            password='WbGM6OMZ6QgVYrCM',
+            db='Cookbook',
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.DictCursor
+        )
+    return g.mysql_db
 
+@cookbook.teardown_appcontext
+def close_db(error):
+    # shut down the connection after the request
+    if hasattr(g, 'mysql_db'):
+        g.mysql_db.close()
 
 @cookbook.route('/')
 def home():
@@ -56,7 +68,12 @@ def new_recipe():
 
 @cookbook.route('/view_recipe')
 def view_recipe():
-    return render_template('view_recipe.html')
+    connection = get_db()
+    with connection.cursor() as cursor:
+        cursor.execute('select * from recipes;')
+        recipe = cursor.fetchall()
+        
+    return render_template('view_recipe.html', content=recipe)
 
 
 if __name__ == "__main__":
