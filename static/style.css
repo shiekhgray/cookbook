@@ -7,12 +7,6 @@ body {
 .all {
 	margin: 20px;
 	padding: 20px;
-	border-style: solid;
-	border-width: 10px;
-	border-color: rgb(255,170,73);
-	border-radius: 20px;
-	width: 1000px;
-	height: auto;
 	
 }
 
@@ -38,14 +32,14 @@ body {
 	}
 	#left, #right {
 		top: 0; bottom: 0;
-		width: 15px;
+		width: 10px;
 		}
 		#left { left: 0; }
 		#right { right: 0; }
 		
 	#top, #bottom {
 		left: 0; right: 0;
-		height: 15px;
+		height: 10px;
 		}
 		#top { top: 0; }
 		#bottom { bottom: 0; }
