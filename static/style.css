@@ -10,10 +10,10 @@ body {
 }
 
 .top {
-	background-color: yellow;
+	background-color: pink;
 }
 
-.top.home {
+.home {
     width:500px;
 	background-color: yellow;
 }
