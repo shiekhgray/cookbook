@@ -11,12 +11,14 @@
 <div id="top"></div>
 <div id="bottom"></div>
 <div class="top">
+<div class="top.home">
 <h1>Cookbook</h1>
 </div>
 <div class="links">
 <h2>links</h2>
 <a href="{{url_for('home')}}">home</a><br/>
 <a href="{{url_for('view_recipe')}}">view recipe</a><br/>
+</div>
 </div>
 <div class="main">
 {% block body %}{% endblock %}

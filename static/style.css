@@ -7,25 +7,30 @@ body {
 .all {
 	margin: 20px;
 	padding: 20px;
-	
 }
 
 .top {
-    width:1000px;
+	background-color: yellow;
+}
+
+.top.home {
+    width:500px;
 	background-color: yellow;
 }
 
 .links {
-    width:300px;
-    float:left;
+    width:500px;
+    float:right;
 	background-color: blue;
 }
+
 .main {
     width:700px;
-    float:right;
+    float:left;
 	background-color: purple;
-	
 }
+
+/*This section creates the borders around the whole page*/
 #top, #bottom, #left, #right {
 	background: rgb(255,170,73);
 	position: fixed;
