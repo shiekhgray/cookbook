@@ -16,7 +16,8 @@ body {
 .home {
     width:200px;
 	background-color: yellow;
-	float:left
+	float:left;
+	padding:20px;
 }
 
 .links {
