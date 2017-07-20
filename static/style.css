@@ -36,8 +36,13 @@ ul {
 li {
 	float:left;
 }
-
-li a form {
+li a{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px;
+}
+li form {
 	display: block;
 	color: white;
 	text-align: center;
