@@ -25,6 +25,29 @@ body {
 	background-color: blue;
 }
 
+/*ul, li, li a, and li a:hover are all making the links in the top menu*/
+.ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: teal;
+}
+.li {
+	float:left;
+}
+
+.li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px;
+}
+.li a:hover {
+	background-color: #111111;
+}
+
+/*Main is the main body of the page, not in a heading bar*/
 .main {
     width:700px;
     float:left;
