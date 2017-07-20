@@ -37,7 +37,7 @@ li {
 	float:left;
 }
 
-li a {
+li a form {
 	display: block;
 	color: white;
 	text-align: center;
@@ -49,7 +49,7 @@ li a:hover {
 
 /*Main is the main body of the page, not in a heading bar*/
 .main {
-    width:700px;
+    width:1000px;
     float:left;
 	background-color: purple;
 }
