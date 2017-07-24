@@ -1,7 +1,7 @@
 #################################################
 #                   RECIPES
 #
-# A small Flask app that handles my recipes and 
+# A small Flask app that handles my recipes and
 # ingredients, and can generate shopping lists
 #
 # Written by Graham McCullough
@@ -9,15 +9,15 @@
 #################################################
 
 import os
-import sqlite3 
+import sqlite3
 import datetime
-import pymysql 
+import pymysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 #from flask.ext.mysql import MySQL
 
 #mysql = MySQL()
- 
+
 
 #######
 # create Flask app
@@ -73,7 +73,7 @@ def view_recipe():
         cursor.execute('select * from recipes where id="1";')
         recipe = cursor.fetchone()
 
-    return render_template('view_recipe.html', 
+    return render_template('view_recipe.html',
         name=recipe["name"],
         instructions=recipe["instructions"],
         prep_time=recipe["prep_time"],
@@ -82,8 +82,15 @@ def view_recipe():
         rating=recipe["rating"],
         times_made=recipe["times_made"],
         pic_ref=recipe["pic_ref"])
-        
-        
+
+@cookbook.route('/test', methods=["POST", "GET"])
+def test():
+    msg = None
+    if request.method == "POST":
+        myItems = request.form['ingredients'].split(', ')
+        msg = " ".join(myItems)
+        return render_template('test.html', message=msg)
+    return render_template('test.html', message=msg)
 
 if __name__ == "__main__":
     cookbook.run(host='0.0.0.0', port=4999)
