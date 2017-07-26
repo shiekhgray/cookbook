@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/test.css">
+    <title>Cookbook</title>
+  </head>
+  <body>
+    <!--
+  ****************************************
+  Contest Entry for Treehouse:
+  "Design a Contact Form"
+  Submitted by Lisa Wagner
+  ****************************************
+-->
+
+<div id="contact-form">
+  {% if message %}
+  <p>You'll need:</p>
+  <ul>
+    {% for m in message%}
+    <li>{{ m }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+	<div>
+		<h1>Shopping List Generator</h1>
+		<h4>Let's figure out what ingredients you need.</h4>
+	</div>
+		   <form method="post" action="">
+			<div>
+		      <label for="recipe">
+		      <span>Choose recipe: </span>
+			      <select id="recipe" name="recipe" tabindex="4">
+              {% for a in allrecipes%}
+                <<option>{{ a }}</option>
+              {% endfor %}
+			      </select>
+		      </label>
+			</div>
+			<div>
+		      <label for="ingredients">
+		      	<span class="required">Ingredients: *</span>
+		      	<textarea id="ingredients" name="ingredients" placeholder="Please write your ingredients here, each separated by a comma." tabindex="5" required="required"></textarea>
+		      </label>
+			</div>
+			<div>
+		      <button name="submit" type="submit" id="submit" >Submit This</button>
+			</div>
+		   </form>
+	</div>
+  </body>
+</html>
