@@ -1,36 +1,12 @@
-recipes = {"hamburger": ["cheese", "buns", "ketchup", 'lettuce', "mayonnaise", "mustard", "pickles", "tomatoes"],
-    "pizza": ["mozzarella", "tomato sauce", "pepperoni", "Italian seasoning", "pizza dough"]
+recipes = {"shrimp fettucine alfredo": ["fettucine", "butter", "shrimp", 'salt', "pepper", "garlic", "eggs", "whole milk", "Parmesan cheese", "parsley"],
+    "greek salad": ["feta cheese", "cherry tomatoes", "kalamata olives", "red onion", "red wine vinegar", "oregano", "salt", "pepper", "olive oil"],
+    "meatball casserole": ["butter", "garlic", "baguette", "cream cheese", "mayonnaise", "Italian seasoning", "meatballs", "spaghetti sauce", "mozzarella"],
+    "philly cheesesteak": ["olive oil", "green peppers", "red peppers", "yellow onions", "salt", "pepper", "sirloin steak", "Provolone cheese", "hoagie rolls"],
+    "roasted tomato bruschetta": ["cherry tomatoes", "garlic", "olive oil", "salt", "pepper", "pancetta", "sage leaves", "ricotta cheese", "country bread", "sea salt"]
 }
 
-myIngredients = []
-
-while True:
-    print "What do you have? (type 'done' when Done.)"
-    have_these_items = raw_input("> ")
-    if len(have_these_items) < 1:
-        print "You have not entered anything."
-    elif have_these_items == "done":
-        break
-    else:
-        myIngredients.append(have_these_items)
-
-
-while True:
-    print "What are you making?"
-    making_this_item = raw_input("> ")
-    if len(making_this_item) < 1:
-        print "You have not entered anything."
-    elif making_this_item not in recipes.keys():
-        print "Sorry, this item is not registered."
-    else:
-        break
-
-ingredients_i_need = recipes[making_this_item]
-
-for m in myIngredients:
-    if m in ingredients_i_need:
-        ingredients_i_need.remove(m)
-
-print "You need: "
-for i in ingredients_i_need:
-    print i
+def check_ingredients(myIngredients, ingredients_i_need):
+    for m in myIngredients:
+        if m in ingredients_i_need:
+            ingredients_i_need.remove(m)
+    return ingredients_i_need

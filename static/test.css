@@ -107,7 +107,7 @@ input:required, textarea:required {
 
 /* Hide success/failure message
    (especially since the php is missing) */
-#failure, #success {
+.success {
    color: #6EA070;
 }
 

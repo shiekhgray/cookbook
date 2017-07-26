@@ -14,6 +14,7 @@ import datetime
 import pymysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
+from sand import recipes, check_ingredients
 #from flask.ext.mysql import MySQL
 
 #mysql = MySQL()
@@ -86,11 +87,14 @@ def view_recipe():
 @cookbook.route('/test', methods=["POST", "GET"])
 def test():
     msg = None
+    allRecipes = recipes.keys()
     if request.method == "POST":
         myItems = request.form['ingredients'].split(', ')
-        msg = " ".join(myItems)
-        return render_template('test.html', message=msg)
-    return render_template('test.html', message=msg)
+        myRecipe = request.form['recipe']
+        myRecipe_items = recipes[myRecipe]
+        msg = check_ingredients(myItems, myRecipe_items)
+        return render_template('test.html', message=msg, allrecipes=allRecipes)
+    return render_template('test.html', message=msg, allrecipes=allRecipes)
 
 if __name__ == "__main__":
     cookbook.run(host='0.0.0.0', port=4999)

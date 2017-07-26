@@ -16,7 +16,12 @@
 
 <div id="contact-form">
   {% if message %}
-  <p id="success">{{ message }}</p>
+  <p>You'll need:</p>
+  <ul>
+    {% for m in message%}
+    <li>{{ m }}</li>
+    {% endfor %}
+  </ul>
   {% endif %}
 	<div>
 		<h1>Shopping List Generator</h1>
@@ -27,8 +32,9 @@
 		      <label for="recipe">
 		      <span>Choose recipe: </span>
 			      <select id="recipe" name="recipe" tabindex="4">
-			         <option>hamburger</option>
-			         <option>pizza</option>
+              {% for a in allrecipes%}
+                <<option>{{ a }}</option>
+              {% endfor %}
 			      </select>
 		      </label>
 			</div>
